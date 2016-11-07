@@ -1,7 +1,7 @@
 package main
 import(
   "fmt"
-  "strings"
+  //"strings"
   "flag"
 )
 
@@ -12,12 +12,13 @@ func main(){
 }
 
 func usage(){
-  var n=flag.Bool("n",false, "Omit Trailing new line")
+  var n=flag.Bool("n",true, "Add 2 Trailing new line")
   var sep=flag.String("s","::","seperator")
   flag.Parse()
-  fmt.Print(strings.Join(flag.Args(), *sep))
-  if !*n {
-    fmt.Println()
-  }
+  fmt.Printf("%p %p",*n,*sep)
+  //fmt.Print(strings.Join(flag.Args(), *sep))
+  if *n {
+    fmt.Printf("\n\n")
+}
 
 }
